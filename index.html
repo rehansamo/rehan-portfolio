@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rehan Rahim — Web & App Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0F;
+    --surface: #111118;
+    --card: #16161F;
+    --border: #22222E;
+    --accent: #7C6AF7;
+    --accent2: #A78BFA;
+    --accent-glow: rgba(124,106,247,0.18);
+    --text: #F0EFF8;
+    --muted: #8884A8;
+    --light: #C4C2D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 6%;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.3rem;
+    color: var(--text);
+    letter-spacing: -0.03em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.88rem; font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent); color: #fff;
+    padding: 0.5rem 1.2rem; border-radius: 6px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 6% 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: 10%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,106,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute; bottom: 5%; left: -15%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-glow); border: 1px solid rgba(124,106,247,0.3);
+    color: var(--accent2); padding: 0.35rem 0.9rem; border-radius: 100px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 1.8rem; width: fit-content;
+  }
+  .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+  }
+  h1 .line2 { color: var(--accent); }
+
+  .hero-desc {
+    color: var(--light); font-size: 1.1rem;
+    max-width: 560px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem; }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 0.8rem 2rem; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(124,106,247,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,106,247,0.45); }
+  .btn-secondary {
+    background: transparent; color: var(--light);
+    padding: 0.8rem 2rem; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--text); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 800; color: var(--text);
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { color: var(--muted); font-size: 0.82rem; margin-top: 0.1rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 6%; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800; letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 480px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* SKILLS */
+  .skills-bg { background: var(--surface); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .skill-pill {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.2rem;
+    text-align: center; font-size: 0.88rem; font-weight: 500;
+    color: var(--light);
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .skill-pill:hover { border-color: var(--accent); transform: translateY(-2px); color: var(--text); }
+  .skill-pill .skill-icon { font-size: 1.5rem; margin-bottom: 0.4rem; display: block; }
+
+  /* EXPERIENCE */
+  .exp-timeline { position: relative; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 2rem; margin-bottom: 3rem; align-items: start;
+  }
+  .exp-date { color: var(--muted); font-size: 0.85rem; font-weight: 500; padding-top: 0.2rem; }
+  .exp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem 1.8rem;
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: var(--accent); }
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem;
+  }
+  .exp-company { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; }
+  .exp-desc { color: var(--light); font-size: 0.9rem; line-height: 1.7; }
+  .exp-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .tag {
+    background: var(--accent-glow); color: var(--accent2);
+    padding: 0.2rem 0.7rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 500;
+    border: 1px solid rgba(124,106,247,0.2);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.8rem;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .project-card:hover::before { opacity: 1; }
+  .project-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 0.75rem; color: var(--accent); letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+  .project-name {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 1.15rem; margin-bottom: 0.7rem;
+  }
+  .project-desc { color: var(--light); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.2rem; }
+  .project-link {
+    color: var(--accent); font-size: 0.85rem; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;
+  }
+  .project-link:hover { text-decoration: underline; }
+
+  /* CONTACT */
+  .contact-bg { background: var(--surface); }
+  .contact-inner {
+    max-width: 600px; margin: 0 auto; text-align: center;
+  }
+  .contact-inner h2 { margin-bottom: 1rem; }
+  .contact-inner p { color: var(--muted); margin-bottom: 2.5rem; line-height: 1.8; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--light); padding: 0.75rem 1.4rem; border-radius: 10px;
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem 6%;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.82rem;
+  }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 4%; }
+    .nav-links { display: none; }
+    section { padding: 4rem 5%; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .exp-date { font-size: 0.78rem; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">RR<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:rehansamo71@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-eyebrow">Available for Freelance & Full-Time</div>
+  <h1>
+    Rehan Rahim<br>
+    <span class="line2">Web & App</span><br>Developer
+  </h1>
+  <p class="hero-desc">
+    I build responsive, scalable web and mobile applications using React, Tailwind CSS, JavaScript, ReactNative, TypeScript, Python and Node.js — with a sharp eye for UI/UX design.
+  </p>
+  <div class="hero-btns">
+    <a href="#projects" class="btn-primary">View My Work</a>
+    <a href="#contact" class="btn-secondary">Let's Talk</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+    <div>
+      <div class="stat-num">15<span>+</span></div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div>
+      <div class="stat-num">3.43<span>/4</span></div>
+      <div class="stat-label">CGPA — CS Degree</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-bg" id="skills">
+  <div class="section-label">What I Work With</div>
+  <h2>Technical Skills</h2>
+  <p class="section-sub">A focused stack I use to build production-ready applications from frontend to backend.</p>
+  <div class="skills-grid">
+    <div class="skill-pill"><span class="skill-icon">⚛️</span>React</div>
+    <div class="skill-pill"><span class="skill-icon">📱</span>React Native</div>
+    <div class="skill-pill"><span class="skill-icon">🟦</span>TypeScript</div>
+    <div class="skill-pill"><span class="skill-icon">🟨</span>JavaScript</div>
+    <div class="skill-pill"><span class="skill-icon">🐍</span>Python</div>
+    <div class="skill-pill"><span class="skill-icon">🎨</span>Tailwind CSS</div>
+    <div class="skill-pill"><span class="skill-icon">🌐</span>HTML / CSS</div>
+    <div class="skill-pill"><span class="skill-icon">🖥️</span>Node.js</div>
+    <div class="skill-pill"><span class="skill-icon">🔥</span>Firebase</div>
+    <div class="skill-pill"><span class="skill-icon">🎭</span>Figma</div>
+    <div class="skill-pill"><span class="skill-icon">🔗</span>REST APIs</div>
+    <div class="skill-pill"><span class="skill-icon">🐙</span>Git / GitHub</div>
+    <div class="skill-pill"><span class="skill-icon">🤖</span>Machine Learning</div>
+    <div class="skill-pill"><span class="skill-icon">💬</span>NLP</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Where I've Worked</div>
+  <h2>Experience</h2>
+  <p class="section-sub">Real-world roles where I've built, shipped, and improved products.</p>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-date">Jan 2025 — Present</div>
+      <div class="exp-card">
+        <div class="exp-role">Web Developer</div>
+        <div class="exp-company">4am Designers · Karachi, Pakistan</div>
+        <div class="exp-desc">Designing and developing responsive web applications for clients across industries. Translating Figma mockups into pixel-perfect interfaces with React and Tailwind CSS, while managing backend logic and RESTful APIs with Node.js.</div>
+        <div class="exp-tags">
+          <span class="tag">React</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Figma</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">Freelance · Ongoing</div>
+      <div class="exp-card">
+        <div class="exp-role">Freelance Web & App Developer</div>
+        <div class="exp-company">Independent · Remote</div>
+        <div class="exp-desc">Worked with multiple clients globally to deliver custom websites, portfolio platforms, and business web applications. Handled full project lifecycle from design to deployment.</div>
+        <div class="exp-tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">UI/UX</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section style="background: var(--surface);" id="projects">
+  <div class="section-label">What I've Built</div>
+  <h2>Projects</h2>
+  <p class="section-sub">A selection of personal, academic, and client projects that showcase my range.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-num">01 — AI / Mobile</div>
+      <div class="project-name">AI Mental Health Mobile App</div>
+      <div class="project-desc">A mobile app for diagnosing mental health conditions using facial and voice emotion detection, an AI chatbot, doctor appointments, and guided meditation modules.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">React Native</span><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">AI</span>
+      </div>
+      
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02 — Business Website</div>
+      <div class="project-name">BONKGO Website</div>
+      <div class="project-desc">A full business website for BONKGO featuring responsive design, interactive UI components, and optimized performance across all devices.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">JavaScript</span>
+      </div>
+      
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03 — Web</div>
+      <div class="project-name">Prime Website</div>
+      <div class="project-desc">A multi-section website with scroll animations, optimized load speed, and a modern layout — built to showcase a brand's full identity online.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">React</span><span class="tag">CSS Animations</span><span class="tag">Performance</span>
+      </div>
+      
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04 — Portfolio / Client</div>
+      <div class="project-name">Portfolio Websites (Multiple)</div>
+      <div class="project-desc">Built elegant, dynamic portfolio websites for multiple clients — with custom animations, contact forms, project showcases, and responsive layouts.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">React</span><span class="tag">Figma</span><span class="tag">Tailwind</span>
+      </div>
+     
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">05 — AI / Python</div>
+      <div class="project-name">AI Voice Assistant</div>
+      <div class="project-desc">A voice-controlled desktop assistant built with Python, NLP, and neural networks — capable of automating device tasks through natural language commands.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Neural Networks</span>
+      </div>
+      
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">06 — ML / Computer Vision</div>
+      <div class="project-name">Fruit Disease Detection System</div>
+      <div class="project-desc">A machine learning tool that detects diseases in fruits via uploaded images using image processing and classification models.</div>
+      <div class="exp-tags" style="margin-bottom:1rem">
+        <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Image Processing</span>
+      </div>
+      
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="text-align:center">Get In Touch</div>
+    <h2>Let's Work Together</h2>
+    <p>Whether you need a website, mobile app, or UI/UX design — I'm open to freelance projects and full-time roles. Let's build something great.</p>
+    <div class="contact-links">
+      <a href="mailto:rehansamo71@gmail.com" class="contact-link">📧 rehansamo71@gmail.com</a>
+      <a href="tel:+923073285098" class="contact-link">📞 +92 307-3285098</a>
+      <a href="https://github.com/rehansamo" target="_blank" class="contact-link">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/rehan-rahim" target="_blank" class="contact-link">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Rehan Rahim — Designed & Built with ❤️ in Karachi, Pakistan</p>
+</footer>
+
+</body>
+</html>
