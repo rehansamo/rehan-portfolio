@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rehan Rahim | Web & App Developer | React · Python AI · Mobile</title>
+<meta name="description" content="Hire a passionate web and app developer with experience in React, Python AI, React Native, Arduino IoT, and UI/UX design. Based in Karachi, Pakistan."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060E1A;
+  --bg2:#0B1623;
+  --card:#0F1E30;
+  --border:#1A2D45;
+  --accent:#2496ED;
+  --accent2:#38BDF8;
+  --text:#F0F6FF;
+  --muted:#7A9BBB;
+  --light:#B8D0E8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 6%;background:rgba(6,14,26,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;text-decoration:none;color:var(--text);display:flex;align-items:baseline;gap:0}
+.logo .r{color:var(--accent);font-size:1.6rem}
+.logo .ehan{color:var(--text)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.88rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.get-quote{background:var(--accent);color:#fff;padding:0.5rem 1.3rem;border-radius:6px;text-decoration:none;font-size:0.88rem;font-weight:600;transition:background 0.2s}
+.get-quote:hover{background:#1a7ec2}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 6% 4rem;position:relative;overflow:hidden;gap:4rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(36,150,237,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(36,150,237,0.12) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;opacity:0.4}
+.available-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(36,150,237,0.1);border:1px solid rgba(36,150,237,0.3);color:var(--accent2);padding:0.35rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.04em;margin-bottom:1.8rem;width:fit-content}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-size:clamp(2.4rem,4.5vw,4rem);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin-bottom:0.6rem}
+h1 .blue{color:var(--accent)}
+.hero-sub{color:var(--light);font-size:1rem;max-width:500px;line-height:1.75;margin-bottom:1.8rem;font-weight:400}
+.hero-checks{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.2rem}
+.hcheck{display:flex;align-items:center;gap:0.45rem;font-size:0.85rem;color:var(--light)}
+.hcheck svg{color:var(--accent);flex-shrink:0}
+.hero-cta{display:inline-flex;align-items:center;gap:0.6rem;background:var(--accent);color:#fff;padding:0.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:background 0.2s,transform 0.2s;box-shadow:0 4px 24px rgba(36,150,237,0.35)}
+.hero-cta:hover{background:#1a7ec2;transform:translateY(-2px)}
+
+/* ORBIT */
+.orbit-wrapper{position:relative;width:380px;height:380px;margin:0 auto;flex-shrink:0}
+.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:110px;height:110px;background:var(--card);border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);text-align:center;line-height:1.3;z-index:2}
+.orbit-ring{position:absolute;top:50%;left:50%;border:1px dashed rgba(36,150,237,0.2);border-radius:50%;transform:translate(-50%,-50%)}
+.ring1{width:220px;height:220px;animation:spin 18s linear infinite}
+.ring2{width:340px;height:340px;animation:spin 28s linear infinite reverse}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.orbit-item{position:absolute;width:52px;height:52px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:default;transition:border-color 0.2s}
+.orbit-item:hover{border-color:var(--accent)}
+.orbit-item span{display:block;font-size:0.6rem;color:var(--muted);text-align:center;position:absolute;bottom:-18px;white-space:nowrap}
+/* Ring 1 items — 4 items at 0,90,180,270 */
+.r1i1{top:0;left:50%;transform:translate(-50%,-50%)}
+.r1i2{top:50%;right:0;transform:translate(50%,-50%)}
+.r1i3{bottom:0;left:50%;transform:translate(-50%,50%)}
+.r1i4{top:50%;left:0;transform:translate(-50%,-50%)}
+/* Ring 2 items — 5 items */
+.r2i1{top:0;left:50%;transform:translate(-50%,-50%)}
+.r2i2{top:20%;right:2%;transform:translate(50%,-50%)}
+.r2i3{bottom:15%;right:5%;transform:translate(50%,50%)}
+.r2i4{bottom:5%;left:30%;transform:translate(-50%,50%)}
+.r2i5{top:20%;left:2%;transform:translate(-50%,-50%)}
+
+/* STATS */
+.stats-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 6%}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:900px;margin:0 auto;text-align:center}
+.stat-num{font-size:2.8rem;font-weight:800;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.stat-label{color:var(--muted);font-size:0.85rem;margin-top:0.3rem}
+
+/* ABOUT */
+.about-section{padding:6rem 6%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
+.section-eyebrow{font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem}
+.about-section h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1.2rem}
+.about-section p{color:var(--light);font-size:0.95rem;line-height:1.8;margin-bottom:1rem}
+.about-badges{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1.5rem}
+.abadge{background:rgba(36,150,237,0.1);border:1px solid rgba(36,150,237,0.25);color:var(--accent2);padding:0.3rem 0.9rem;border-radius:100px;font-size:0.78rem;font-weight:600}
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem;transition:border-color 0.2s}
+.why-card:hover{border-color:var(--accent)}
+.why-icon{font-size:1.5rem;margin-bottom:0.6rem}
+.why-card h4{font-size:0.9rem;font-weight:700;margin-bottom:0.3rem}
+.why-card p{color:var(--muted);font-size:0.8rem;line-height:1.6}
+
+/* SERVICES */
+.services-section{background:var(--bg2);padding:6rem 6%}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.6rem}
+.section-header p{color:var(--muted);max-width:500px;margin:0 auto;font-size:0.95rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color 0.25s,transform 0.25s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.25s}
+.service-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.service-card:hover::before{opacity:1}
+.service-icon{font-size:2rem;margin-bottom:1rem}
+.service-card h3{font-size:1rem;font-weight:700;margin-bottom:0.8rem}
+.service-card ul{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
+.service-card ul li{color:var(--muted);font-size:0.83rem;display:flex;align-items:center;gap:0.4rem}
+.service-card ul li::before{content:'→';color:var(--accent);font-size:0.75rem}
+
+/* PROJECTS */
+.projects-section{padding:6rem 6%}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color 0.25s,transform 0.25s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.25s}
+.project-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.project-card:hover::before{opacity:1}
+.project-num{font-size:0.72rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem}
+.project-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.7rem}
+.project-card p{color:var(--light);font-size:0.87rem;line-height:1.7;margin-bottom:1.2rem}
+.ptags{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.ptag{background:rgba(36,150,237,0.1);color:var(--accent2);padding:0.2rem 0.65rem;border-radius:100px;font-size:0.72rem;font-weight:600;border:1px solid rgba(36,150,237,0.2)}
+.plink{color:var(--accent);font-size:0.83rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem}
+.plink:hover{text-decoration:underline}
+
+/* FEATURED PROJECT */
+.featured-section{background:var(--bg2);padding:6rem 6%}
+.featured-inner{max-width:1000px;margin:0 auto}
+.featured-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2rem}
+.featured-body{padding:2.5rem}
+.featured-body h3{font-size:1.5rem;font-weight:800;margin-bottom:0.8rem}
+.featured-body p{color:var(--light);font-size:0.95rem;line-height:1.8;margin-bottom:1.5rem;max-width:600px}
+.tech-stack{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.ts-pill{background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:0.25rem 0.75rem;border-radius:6px;font-size:0.78rem;font-weight:600}
+.highlights{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
+.hl{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.84rem;color:var(--light)}
+.hl::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:0.1rem}
+
+/* SKILLS */
+.skills-section{padding:6rem 6%}
+.skills-inner{max-width:1000px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:1rem;margin-top:2rem}
+.skill-pill{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;font-size:0.82rem;font-weight:600;color:var(--light);transition:border-color 0.2s,transform 0.2s;cursor:default}
+.skill-pill:hover{border-color:var(--accent);transform:translateY(-3px);color:var(--text)}
+.skill-pill .si{font-size:1.6rem;display:block;margin-bottom:0.35rem}
+
+/* CONTACT */
+.contact-section{background:var(--bg2);padding:6rem 6%}
+.contact-inner{max-width:1100px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;margin-top:3rem;align-items:start}
+.contact-left>p{color:var(--muted);font-size:0.92rem;line-height:1.8;margin-bottom:2.5rem}
+.process h4{font-size:0.95rem;font-weight:700;margin-bottom:1.3rem}
+.pstep{display:flex;gap:1rem;margin-bottom:1.3rem;align-items:flex-start}
+.pstep-dot{width:36px;height:36px;min-width:36px;border-radius:50%;background:rgba(36,150,237,0.1);border:1px solid rgba(36,150,237,0.3);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--accent);font-weight:700}
+.pstep-body strong{color:var(--text);font-size:0.88rem;display:block;margin-bottom:0.2rem}
+.pstep-body span{color:var(--muted);font-size:0.8rem;line-height:1.6}
+.cinfo{display:flex;flex-direction:column;gap:0.75rem;margin:2rem 0}
+.cinfo-item{display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:var(--light);font-size:0.87rem;transition:color 0.2s}
+.cinfo-item:hover{color:var(--accent)}
+.cinfo-icon{width:38px;height:38px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:border-color 0.2s}
+.cinfo-item:hover .cinfo-icon{border-color:var(--accent)}
+.socials{display:flex;gap:0.6rem;margin-top:1.5rem}
+.soc{width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1rem;color:var(--muted);transition:border-color 0.2s,color 0.2s}
+.soc:hover{border-color:var(--accent);color:var(--accent)}
+/* Form */
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.4rem}
+.form-card h3{font-size:1.25rem;font-weight:800;margin-bottom:0.3rem}
+.form-card .fsub{color:var(--muted);font-size:0.83rem;margin-bottom:2rem}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem}
+.field label{font-size:0.8rem;font-weight:600;color:var(--light)}
+.field label em{color:var(--accent);font-style:normal}
+.field input,.field select,.field textarea{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem;color:var(--text);font-size:0.87rem;font-family:'Inter',sans-serif;outline:none;width:100%;transition:border-color 0.2s,box-shadow 0.2s}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(36,150,237,0.12)}
+.field select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath fill='%237A9BBB' d='M5 6L0 0h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.field select option{background:#0B1623}
+.field textarea{resize:vertical;min-height:130px}
+.sbtn{width:100%;background:var(--accent);color:#fff;border:none;padding:0.9rem 2rem;border-radius:8px;font-size:0.95rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.6rem;transition:background 0.2s,transform 0.2s;box-shadow:0 4px 20px rgba(36,150,237,0.3);margin-top:0.3rem}
+.sbtn:hover{background:#1a7ec2;transform:translateY(-2px)}
+.success-msg{display:none;text-align:center;padding:3rem 1rem}
+.success-msg .si{font-size:3rem;margin-bottom:1rem}
+.success-msg h4{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.success-msg p{color:var(--muted);font-size:0.88rem}
+
+footer{text-align:center;padding:2rem 6%;border-top:1px solid var(--border);color:var(--muted);font-size:0.82rem}
+
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;text-align:center;gap:3rem}
+  .orbit-wrapper{display:none}
+  .hero-sub,.hero-checks{max-width:100%}
+  .available-badge{margin:0 auto 1.8rem}
+  .about-section{grid-template-columns:1fr;gap:3rem}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .row2{grid-template-columns:1fr}
+  nav{padding:1rem 4%}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#hero"><span class="r">R</span><span class="ehan">ehan</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="get-quote">Get Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-left">
+    <div class="available-badge"><span class="badge-dot"></span> Available for New Projects</div>
+    <h1>Web & App Developer<br><span class="blue">You Can Trust</span></h1>
+    <p class="hero-sub">I help businesses build responsive, scalable web and mobile applications — from AI-powered tools to React websites and Arduino automation systems.</p>
+    <div class="hero-checks">
+      <div class="hcheck"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="rgba(36,150,237,0.15)"/><path stroke="#2496ED" stroke-width="2" stroke-linecap="round" d="M7 12l3 3 7-7"/></svg> 3+ Years Experience</div>
+      <div class="hcheck"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="rgba(36,150,237,0.15)"/><path stroke="#2496ED" stroke-width="2" stroke-linecap="round" d="M7 12l3 3 7-7"/></svg> 15+ Projects Delivered</div>
+      <div class="hcheck"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="rgba(36,150,237,0.15)"/><path stroke="#2496ED" stroke-width="2" stroke-linecap="round" d="M7 12l3 3 7-7"/></svg> React · Python AI · Mobile</div>
+    </div>
+    <a href="#contact" class="hero-cta">✈️ Discuss Your Project</a>
+  </div>
+
+  <!-- ORBIT ANIMATION -->
+  <div class="orbit-wrapper">
+    <div class="orbit-ring ring1">
+      <div class="orbit-item r1i1">⚛️<span>React</span></div>
+      <div class="orbit-item r1i2">🐍<span>Python</span></div>
+      <div class="orbit-item r1i3">🎨<span>Figma</span></div>
+      <div class="orbit-item r1i4">📱<span>Mobile</span></div>
+    </div>
+    <div class="orbit-ring ring2">
+      <div class="orbit-item r2i1">🟦<span>TypeScript</span></div>
+      <div class="orbit-item r2i2">🔥<span>Firebase</span></div>
+      <div class="orbit-item r2i3">🖥️<span>Node.js</span></div>
+      <div class="orbit-item r2i4">🤖<span>AI / NLP</span></div>
+      <div class="orbit-item r2i5">⚡<span>Arduino</span></div>
+    </div>
+    <div class="orbit-center">Web &<br>App<br>Developer</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><div class="stat-num">3+</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-num">15+</div><div class="stat-label">Projects Delivered</div></div>
+    <div><div class="stat-num">98%</div><div class="stat-label">Client Satisfaction</div></div>
+    <div><div class="stat-num">24h</div><div class="stat-label">Response Time</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="about-section">
+  <div>
+    <div class="section-eyebrow">About Me</div>
+    <h2>Hi, I'm Rehan Rahim</h2>
+    <p>A passionate web and app developer from Karachi, Pakistan with hands-on experience building real products across web, mobile, AI, and IoT.</p>
+    <p>I specialize in creating fast, responsive React applications, AI-powered Python tools, and cross-platform mobile apps that solve real problems. From Figma designs to deployed products — I handle the full journey.</p>
+    <p>I'm also building <strong style="color:var(--accent2)">Kingdom of the Sun</strong> — an AI-animated YouTube series — pushing the creative boundaries of AI technology in storytelling.</p>
+    <div class="about-badges">
+      <span class="abadge">React Developer</span>
+      <span class="abadge">Python AI Builder</span>
+      <span class="abadge">Mobile Developer</span>
+      <span class="abadge">UI/UX Designer</span>
+      <span class="abadge">Arduino IoT</span>
+      <span class="abadge">GPA: 3.43/4.0</span>
+    </div>
+  </div>
+  <div class="why-cards">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h4>Clean, Fast Code</h4>
+      <p>Every project is built for performance, readability, and long-term maintainability.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎨</div>
+      <h4>Design-First</h4>
+      <p>I start from Figma and build pixel-perfect interfaces that convert visitors to customers.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤖</div>
+      <h4>AI Integration</h4>
+      <p>I bring real AI into products — NLP, voice control, emotion detection, and more.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h4>Reliable & Fast</h4>
+      <p>I respond within 24 hours and deliver on deadline — every time.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-header">
+    <div class="section-eyebrow">Services</div>
+    <h2>How I Can Help You</h2>
+    <p>From idea to deployed product — full-stack development, design, and AI solutions.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚛️</div>
+      <h3>React Web Development</h3>
+      <ul>
+        <li>Custom React websites & SPAs</li>
+        <li>Landing pages & portfolios</li>
+        <li>Tailwind CSS & animations</li>
+        <li>REST API integration</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Mobile App Development</h3>
+      <ul>
+        <li>React Native iOS & Android apps</li>
+        <li>Firebase backend & auth</li>
+        <li>Push notifications</li>
+        <li>APK delivery & store guidance</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>AI & Python Solutions</h3>
+      <ul>
+        <li>Voice-controlled AI assistants</li>
+        <li>NLP & intent classification</li>
+        <li>Machine learning integration</li>
+        <li>Chatbot & automation tools</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>UI/UX Design</h3>
+      <ul>
+        <li>Figma wireframes & prototypes</li>
+        <li>Design systems & components</li>
+        <li>Mobile & web UI design</li>
+        <li>Brand identity basics</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Arduino & IoT</h3>
+      <ul>
+        <li>Smart home automation</li>
+        <li>Bluetooth & WiFi control</li>
+        <li>Sensor systems & circuits</li>
+        <li>Mobile app for device control</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎬</div>
+      <h3>AI Animated Video</h3>
+      <ul>
+        <li>AI-generated animated shorts</li>
+        <li>YouTube series production</li>
+        <li>AI voiceover & music</li>
+        <li>DaVinci Resolve editing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section class="featured-section">
+  <div class="featured-inner">
+    <div class="section-eyebrow">Case Study</div>
+    <h2>Featured Project</h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-top:0.5rem">An AI-powered mental health platform combining emotion detection, chatbot, and care workflows.</p>
+    <div class="featured-card">
+      <div class="featured-body">
+        <span style="background:rgba(36,150,237,0.1);color:var(--accent2);font-size:0.75rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:100px;border:1px solid rgba(36,150,237,0.25)">AI · Mobile · Healthcare</span>
+        <h3 style="margin-top:1rem">AI Mental Health Mobile App</h3>
+        <p>A cross-platform mobile application that diagnoses mental health conditions using real-time facial emotion detection and voice emotion analysis. Integrates an AI chatbot, doctor appointment booking, mind exercises, and guided meditation modules into one unified platform.</p>
+        <div class="tech-stack">
+          <span class="ts-pill">React Native</span>
+          <span class="ts-pill">Python</span>
+          <span class="ts-pill">NLP</span>
+          <span class="ts-pill">Neural Networks</span>
+          <span class="ts-pill">Firebase</span>
+          <span class="ts-pill">TensorFlow</span>
+          <span class="ts-pill">OpenCV</span>
+        </div>
+        <div class="highlights">
+          <div class="hl">Facial emotion detection using computer vision</div>
+          <div class="hl">Voice emotion analysis with NLP pipeline</div>
+          <div class="hl">Real-time AI chatbot for mental health support</div>
+          <div class="hl">Doctor appointment booking system</div>
+          <div class="hl">Guided meditation and mind exercise modules</div>
+          <div class="hl">Cross-platform: iOS and Android from one codebase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-eyebrow">Work</div>
+    <h2>Projects I've Built</h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-top:0.5rem;margin-bottom:3rem">Real products built for real clients and real problems.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">02 — AI / Python</div>
+      <h3>ARIA — AI Voice Assistant</h3>
+      <p>A voice-controlled desktop assistant using Python, NLP, and TF-IDF neural classification. Controls apps, monitors system, saves notes, and responds via speech — fully offline TTS.</p>
+      <div class="ptags"><span class="ptag">Python</span><span class="ptag">NLTK</span><span class="ptag">scikit-learn</span><span class="ptag">Speech Recognition</span></div>
+      <a href="https://github.com/rehansamo/ai-virtual-assistant" class="plink" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">03 — Business Website</div>
+      <h3>BONKGO Website</h3>
+      <p>Full business website for BONKGO — responsive design, interactive components, optimized performance and UI/UX for business conversions across all devices.</p>
+      <div class="ptags"><span class="ptag">React</span><span class="ptag">Tailwind CSS</span><span class="ptag">JavaScript</span><span class="ptag">Figma</span></div>
+      <a href="#" class="plink">Live Demo →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">04 — Web</div>
+      <h3>Prime Website</h3>
+      <p>Multi-section website with scroll animations, optimized load speed, and a modern layout — built to showcase a brand's complete identity with premium feel.</p>
+      <div class="ptags"><span class="ptag">React</span><span class="ptag">CSS Animations</span><span class="ptag">Performance</span></div>
+      <a href="https://github.com/rehansamo/Prime-landing-page" class="plink" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">05 — IoT / Hardware</div>
+      <h3>Smart Home Automation (Arduino)</h3>
+      <p>Home automation system using Arduino UNO, relay modules, and Bluetooth — smartphone-controlled electrical devices with a custom mobile app and PCB layout documentation.</p>
+      <div class="ptags"><span class="ptag">Arduino</span><span class="ptag">IoT</span><span class="ptag">Bluetooth</span><span class="ptag">C++</span></div>
+      <a href="#" class="plink">View on GitHub →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">06 — Portfolio / Client</div>
+      <h3>Portfolio Websites (Multiple)</h3>
+      <p>Built elegant, dynamic portfolio websites for multiple clients — custom animations, contact forms, project showcases, and fully responsive layouts in React.</p>
+      <div class="ptags"><span class="ptag">React</span><span class="ptag">Figma</span><span class="ptag">Tailwind</span><span class="ptag">Firebase</span></div>
+      <a href="#" class="plink">View Work →</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">07 — AI Creative</div>
+      <h3>Kingdom of the Sun — AI Series</h3>
+      <p>An AI-animated fantasy YouTube series featuring 9 planet kingdoms under a Sun empire. Complete story bible, episode scripts, character reference generation, and AI video pipeline.</p>
+      <div class="ptags"><span class="ptag">AI Video</span><span class="ptag">Google Flow</span><span class="ptag">Leonardo AI</span><span class="ptag">DaVinci</span></div>
+      <a href="#" class="plink">Coming Soon →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="skills-inner">
+    <div class="section-eyebrow">Skills</div>
+    <h2>Technical Stack</h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-top:0.5rem">Languages, frameworks, tools, and platforms I work with daily.</p>
+    <div class="skills-grid">
+      <div class="skill-pill"><span class="si">⚛️</span>React</div>
+      <div class="skill-pill"><span class="si">📱</span>React Native</div>
+      <div class="skill-pill"><span class="si">🟦</span>TypeScript</div>
+      <div class="skill-pill"><span class="si">🟨</span>JavaScript</div>
+      <div class="skill-pill"><span class="si">🐍</span>Python</div>
+      <div class="skill-pill"><span class="si">🎨</span>Tailwind CSS</div>
+      <div class="skill-pill"><span class="si">🌐</span>HTML / CSS</div>
+      <div class="skill-pill"><span class="si">🖥️</span>Node.js</div>
+      <div class="skill-pill"><span class="si">⚡</span>Express.js</div>
+      <div class="skill-pill"><span class="si">🔥</span>Firebase</div>
+      <div class="skill-pill"><span class="si">🎭</span>Figma</div>
+      <div class="skill-pill"><span class="si">🔗</span>REST APIs</div>
+      <div class="skill-pill"><span class="si">🐙</span>Git / GitHub</div>
+      <div class="skill-pill"><span class="si">🤖</span>Machine Learning</div>
+      <div class="skill-pill"><span class="si">💬</span>NLP / NLTK</div>
+      <div class="skill-pill"><span class="si">⚡</span>Arduino</div>
+      <div class="skill-pill"><span class="si">🏠</span>IoT</div>
+      <div class="skill-pill"><span class="si">🎬</span>AI Video</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow">Start Your Project</div>
+    <h2>Let's Build Something Great</h2>
+    <p style="color:var(--muted);font-size:0.92rem;margin-top:0.5rem">Share your project details and I'll get back to you within 24 hours.</p>
+
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p>Whether you need a website, mobile app, AI solution, or UI/UX design — I'm available for freelance projects and full-time roles. Let's talk about what you're building.</p>
+        <div class="process">
+          <h4>What Happens Next?</h4>
+          <div class="pstep"><div class="pstep-dot">1</div><div class="pstep-body"><strong>Within 24 hours</strong><span>I'll review your requirements and respond with initial thoughts.</span></div></div>
+          <div class="pstep"><div class="pstep-dot">2</div><div class="pstep-body"><strong>Discovery Call</strong><span>We'll schedule a quick call to discuss your project in detail.</span></div></div>
+          <div class="pstep"><div class="pstep-dot">3</div><div class="pstep-body"><strong>Proposal</strong><span>You'll receive a detailed proposal with timeline and investment.</span></div></div>
+          <div class="pstep"><div class="pstep-dot">4</div><div class="pstep-body"><strong>Kick-off</strong><span>Once approved, we begin building your solution.</span></div></div>
+        </div>
+        <div class="cinfo">
+          <a href="mailto:rehansamo71@gmail.com" class="cinfo-item"><div class="cinfo-icon">📧</div>rehansamo71@gmail.com</a>
+          <a href="tel:+923073285098" class="cinfo-item"><div class="cinfo-icon">📞</div>+92 307-3285098</a>
+          <a href="https://rehansamo.github.io/rehan-portfolio/" class="cinfo-item" target="_blank"><div class="cinfo-icon">🌐</div>rehansamo.github.io/rehan-portfolio</a>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/rehansamo" class="soc" target="_blank" title="GitHub">🐙</a>
+          <a href="https://linkedin.com/in/rehan-rahim" class="soc" target="_blank" title="LinkedIn">💼</a>
+          <a href="mailto:rehansamo71@gmail.com" class="soc" title="Email">✉️</a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Share Your Project Details</h3>
+        <p class="fsub">The more details you provide, the better I can understand your needs.</p>
+        <form id="cf" onsubmit="sendForm(event)">
+          <div class="row2">
+            <div class="field"><label>Your Name <em>*</em></label><input type="text" name="name" placeholder="John Smith" required/></div>
+            <div class="field"><label>Email Address <em>*</em></label><input type="email" name="email" placeholder="john@company.com" required/></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label>Website / Company</label><input type="text" name="website" placeholder="yourcompany.com"/></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="text" name="phone" placeholder="+1 234 567 8900"/></div>
+          </div>
+          <div class="field">
+            <label>Project Type <em>*</em></label>
+            <select name="type" required>
+              <option value="" disabled selected>Select project type...</option>
+              <option>React Website / Landing Page</option>
+              <option>Mobile App (iOS & Android)</option>
+              <option>AI Voice Assistant (Python)</option>
+              <option>UI/UX Design (Figma)</option>
+              <option>Arduino / IoT Project</option>
+              <option>AI Animated Video</option>
+              <option>Full Stack Web Application</option>
+              <option>Other — I'll explain below</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Project Description <em>*</em></label>
+            <textarea name="msg" placeholder="Describe your project, goals, and any specific requirements. The more detail you provide, the better I can help..." required></textarea>
+          </div>
+          <button type="submit" class="sbtn">✈️ Submit Project Brief</button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <div class="si">✅</div>
+          <h4>Message Sent!</h4>
+          <p>Thanks for reaching out. I'll review your details and get back to you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 Rehan Rahim — Web & App Developer · Karachi, Pakistan</p></footer>
+
+<script>
+function sendForm(e){
+  e.preventDefault();
+  const f=document.getElementById('cf');
+  const n=f.querySelector('[name="name"]').value.trim();
+  const em=f.querySelector('[name="email"]').value.trim();
+  const t=f.querySelector('[name="type"]').value;
+  const w=f.querySelector('[name="website"]').value.trim();
+  const ph=f.querySelector('[name="phone"]').value.trim();
+  const m=f.querySelector('[name="msg"]').value.trim();
+  if(!n||!em||!t||!m){alert('Please fill all required fields.');return;}
+  const sub=encodeURIComponent('Project Inquiry: '+t+' — '+n);
+  const body=encodeURIComponent('Name: '+n+'\nEmail: '+em+(w?'\nWebsite: '+w:'')+(ph?'\nPhone: '+ph:'')+'\nProject Type: '+t+'\n\nDescription:\n'+m);
+  window.location.href='mailto:rehansamo71@gmail.com?subject='+sub+'&body='+body;
+  f.style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+</script>
+</body>
+</html>
